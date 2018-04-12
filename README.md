@@ -1,1 +1,3 @@
-# objects_patters_practice
+# objects_patterns
+
+This is a repo for learning objects and patterns
