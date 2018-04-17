@@ -6,6 +6,7 @@
  * Time: 11:18 AM
  */
 
+require_once 'SimpleCalculator.php';
 
 class simpleCalculatorTest extends \PHPUnit\Framework\TestCase
 {
@@ -13,11 +14,13 @@ class simpleCalculatorTest extends \PHPUnit\Framework\TestCase
 
     public function setup(){
         $this->simpleCalculator= new SimpleCalculator();
+
     }
     /**
      * @test
      */
     public function calculatorDoesSumCorrectly(){
+
         $testResult = $this->simpleCalculator->sum(1,4);
         $expectedResult = 5;
         $this->assertEquals($expectedResult, $testResult, "the sum of 1 and 4 did not seem to be 5");
@@ -47,6 +50,12 @@ class simpleCalculatorTest extends \PHPUnit\Framework\TestCase
         $testResult = $this->simpleCalculator->divideBy(10,2);
         $expectedResult = 5;
         $this->assertEquals($expectedResult, $testResult, "the calculator did not get 5 after dividing 10 by 2");
+    }
+
+    public function divideByZeroGetsCaught(){
+        $testResult = $this->simpleCalculator->divideBy(10,0);
+        $expectedResult = "cannot divide by 0!";
+        $this->assertEquals($expectedResult, $testResult, "divide by 0 didn't get caught");
     }
 
     /**
